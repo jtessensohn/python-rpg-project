@@ -2,9 +2,10 @@ from random import randrange
 from character import Character
 
 class Medic(Character):
-    def __init__(self, health = 10, power = 2):
+    def __init__(self, level = 1, health = 10, power = 2):
         self.health = health
         self.power = power
+        self.level = level
     
     def attack(self, hero):
         heal = randrange(5)

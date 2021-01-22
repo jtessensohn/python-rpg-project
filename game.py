@@ -1,20 +1,28 @@
-# from character import Character, Hero, Goblin, Shadow, Medic, Zombie, Warrior, Priest, Mage, Rogue
+# TODO impose health maximum in regards to healing at the tavern
+# add more growth through money to spend at the shop
+# add item use functionality
+# add boss
+# dear god do some number tuning
+
 from random import randrange
 from menu import Menu
 from warrior import Warrior
 from priest import Priest
 from mage import Mage
 from rogue import Rogue
+from goblin import Goblin
+from medic import Medic
+from zombie import Zombie
+from shadow import Shadow
+from character import Character
 
-# list for make hero
-hero = []
 
 main_menu = [
     "Go to the store",
-    "Rest at the inn",
+    "Rest at the Tavern",
     "Explore outside town",
-    "Level up",
-    "Choose class"
+    "Visit the mentor",
+    "Retire the mantle"
 ]
 
 HERO_CLASSES = {
@@ -31,15 +39,23 @@ def hero_create():
     
 def main():
     hero = hero_create()
-    home = Menu("Please choose an Option: ", main_menu)
+    # enemies = Character()
+    home = Menu("Please choose an Option: \n", main_menu)
     # types = Menu("Please choose your class: ", main_menu)
     while True:
         choice = home.get_choice()
+        if choice == 1:
+            pass
+        if choice == 2:
+            hero.rest()
         if choice == 3:
             hero.battle()
+        if choice == 4:
+            hero.level_up()
         if choice == 5:
-            pass
-        if not hero.alive():
+            print('Maybe someone more capable will take the challenge')
+            break
+        if not hero.is_alive:
             print("You are dead!")
 
 main()

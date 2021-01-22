@@ -3,7 +3,8 @@ from hero import Hero
 
 
 class Mage(Hero):
-    def __init__(self, health = 5, power = 7):
+    def __init__(self, health = 5, power = 7, exp = 0, level = 1, level_next = 25):
+        super().__init__(exp, level, level_next)
         self.health = health
         self.power = power
     def attack(self, enemy):
