@@ -1,15 +1,10 @@
-class Goblin:
+from character import Character
+
+class Goblin(Character):
     def __init__(self, health = 6, power = 2):
-        self.health = health
+        # super().__init__(6, 2)
         self.power = power
-
-    def attack(self, hero):
-        hero.health -= self.power
-
-    def status(self, goblin):
-            if self.health > 0:
-                print(f"You have {self.health} health and {self.power} power.")
+        self.health = health
     
-    def alive(self):
-        while self.health > 0:
-            return True
+    def __str__(self):
+        return "Goblin"
