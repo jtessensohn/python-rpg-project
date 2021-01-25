@@ -1,8 +1,9 @@
 from random import randrange
 
 class Character:
-    def __init__(self, level = 1, health=1, power=1):
+    def __init__(self, level = 1, max_health = 1, health=1, power=1):
         self.health = health
+        self.max_health = max_health
         self.power = power
         self.level = level
     

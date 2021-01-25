@@ -22,6 +22,7 @@ main_menu = [
     "Rest at the Tavern",
     "Explore outside town",
     "Visit the mentor",
+    "Fight the boss",
     "Retire the mantle"
 ]
 
@@ -44,17 +45,28 @@ def main():
     # types = Menu("Please choose your class: ", main_menu)
     while True:
         choice = home.get_choice()
+        battle_count = 0
         if choice == 1:
             pass
-        if choice == 2:
+        elif choice == 2:
             hero.rest()
-        if choice == 3:
+            hero.spend_gold()
+        elif choice == 3:
             hero.battle()
-        if choice == 4:
+            battle_count += 1
+            # if battle_count == 2:
+            #     print("You have spotted the boss, prepare to fight!")
+        elif choice == 4:
             hero.level_up()
-        if choice == 5:
+        elif choice == 5:
+            hero.boss_battle()
+        elif choice == 6:
             print('Maybe someone more capable will take the challenge')
             break
+        # if battle_count == 2:
+        #     main_menu.append("Fight the boss")
+        #     home = Menu("Please choose an Option: \n", main_menu)
+        #     choice = home.get_choice()
         if not hero.is_alive:
             print("You are dead!")
 
