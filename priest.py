@@ -15,5 +15,7 @@ class Priest(Hero):
             print(f"You do {self.power} damage to the {enemy}.")
         elif heal != 4:
             enemy.health -= self.power
-            self.health += self.power
-            print(f"You do {self.power} damage to the {enemy} and healed yourself for {self.power} health.")
+            if self.max_health > self.health:
+                self.health += self.power
+                print(f"You do {self.power} damage to the {enemy} and healed yourself for {self.power} health.")
+            # elif self.max_health x

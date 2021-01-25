@@ -1,7 +1,4 @@
-# TODO impose health maximum in regards to healing at the tavern
-# add more growth through money to spend at the shop
-# add item use functionality
-# add boss
+# TODO add item use functionality
 # dear god do some number tuning
 
 from random import randrange
@@ -18,7 +15,6 @@ from character import Character
 
 
 main_menu = [
-    "Go to the store",
     "Rest at the Tavern",
     "Explore outside town",
     "Visit the mentor",
@@ -41,33 +37,28 @@ def hero_create():
 def main():
     hero = hero_create()
     # enemies = Character()
-    home = Menu("Please choose an Option: \n", main_menu)
+    home = Menu("Please choose an Option: ", main_menu)
     # types = Menu("Please choose your class: ", main_menu)
     while True:
+        print("\n")
         choice = home.get_choice()
         battle_count = 0
+        # if choice == 1:
+        #     pass
         if choice == 1:
-            pass
-        elif choice == 2:
             hero.rest()
             hero.spend_gold()
-        elif choice == 3:
+        elif choice == 2:
             hero.battle()
             battle_count += 1
             # if battle_count == 2:
             #     print("You have spotted the boss, prepare to fight!")
-        elif choice == 4:
+        elif choice == 3:
             hero.level_up()
-        elif choice == 5:
+        elif choice == 4:
             hero.boss_battle()
-        elif choice == 6:
+        elif choice == 5:
             print('Maybe someone more capable will take the challenge')
             break
-        # if battle_count == 2:
-        #     main_menu.append("Fight the boss")
-        #     home = Menu("Please choose an Option: \n", main_menu)
-        #     choice = home.get_choice()
-        if not hero.is_alive:
-            print("You are dead!")
 
 main()

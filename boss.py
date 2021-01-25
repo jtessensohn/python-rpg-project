@@ -5,3 +5,6 @@ class Boss(Character):
         self.health = health
         self.power = power
         self.level = level
+    
+    def __str__(self):
+        return "Abomination"

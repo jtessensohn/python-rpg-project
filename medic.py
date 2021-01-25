@@ -11,7 +11,7 @@ class Medic(Character):
         heal = randrange(5)
         if heal == 4:
             hero.health -= self.power
-            self.health += 2
+            self.health += self.power
             print(f"{self} does {self.power} damage to you and healed for 2!")
         elif heal != 4:
             hero.health -= self.power

@@ -35,6 +35,7 @@ class Hero(Character):
 
     def death_message(self):
         print('You are dead!')
+        quit()
 
     def status(self):
             if self.health > 0:
@@ -57,8 +58,7 @@ class Hero(Character):
             print(f"1. fight {enemy}")
             print("2. do nothing")
             print("3. flee")
-            print("> ",)
-            user_input = input()
+            user_input = input("> ")
             if user_input == "1":
                 # Hero attacks goblin
                 self.attack(enemy)
@@ -70,13 +70,15 @@ class Hero(Character):
                     # self.get_gold(enemy)
                 if self.is_alive() !=True:
                     self.death_message()
+                    quit()
                 enemy.is_alive()
             elif user_input == "2":
                 enemy.attack(self)
                 if enemy.is_alive() != True:
                     enemy.death_message()
-                # if self.is_alive() !=True:
-                #     self.dead()
+                if self.is_alive() !=True:
+                    self.death_message()
+                    quit()
             elif user_input == "3":
                 
                 print(f"Your display of cowardice impressed the {enemy} long enough for you to escape.")
@@ -86,12 +88,14 @@ class Hero(Character):
 
     def boss_battle(self):
         enemy = Boss()
+        print("\nBefore you stands a creature of unknown origin. \nYou struggle to make out its composition \nbut by the stench alone you know that it must be dealt with.\n\n")
         if enemy.level < self.level:
             level_diff = (self.level - enemy.level)
             enemy.level = self.level
             enemy.health += round((enemy.health * .45) * level_diff)
             enemy.power += round((enemy.power * .65) * level_diff)
         while enemy.is_alive() and self.is_alive():
+            print("\n")
             self.status()
             enemy.status()
             print()
@@ -99,8 +103,7 @@ class Hero(Character):
             print(f"1. fight {enemy}")
             print("2. do nothing")
             print("3. flee")
-            print("> ",)
-            user_input = input()
+            user_input = input("> ")
             if user_input == "1":
                 # Hero attacks goblin
                 self.attack(enemy)
@@ -111,13 +114,15 @@ class Hero(Character):
                     self.get_exp()
                 if self.is_alive() !=True:
                     self.death_message()
+                    quit()
                 enemy.is_alive()
             elif user_input == "2":
                 enemy.attack(self)
                 if enemy.is_alive() != True:
                     enemy.death_message()
-                # if self.is_alive() !=True:
-                #     self.dead()
+                if self.is_alive() !=True:
+                    self.death_message()
+                    quit()
             elif user_input == "3":
                 print("Goodbye.")
                 break
@@ -148,13 +153,11 @@ class Hero(Character):
             print(f'It seems the enemies around town are growing in strength as well...')
             self.max_health += round(self.max_health * .33)
             self.power += round(self.power * .75)
-            # enemy.enemy_level_up()
 
     def get_gold(self, enemy_bounty):
         self.earned_gold += enemy_bounty.health *.5
         self.total_gold += self.earned_gold
         print(f"You'll earn {self.earned_gold} gold for this bounty for a total of {self.total_gold} in your wallet.")
-        # print(f"You now have {self.total_gold}")
 
     def spend_gold(self):
         self.total_gold -= (round(self.total_gold * .33))
