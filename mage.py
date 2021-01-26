@@ -16,3 +16,6 @@ class Mage(Hero):
         elif crit != 2:
             enemy.health -= self.power
             print(f"You do {self.power} damage to the {enemy}.")
+        
+    def __str__(self):
+        return "You"

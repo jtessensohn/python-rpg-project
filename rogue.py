@@ -7,7 +7,7 @@ class Rogue(Hero):
         self.health = health
         self.power = power
         self.max_health = max_health
-        
+
     def attack(self, enemy):
         dodge = randrange(5)
         if dodge != 4:
@@ -17,3 +17,6 @@ class Rogue(Hero):
         if dodge == 4:
             enemy.health -= self.power
             print(f'You did {self.power} damage to the {enemy}.')
+
+    def __str__(self):
+        return "You"

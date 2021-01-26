@@ -67,6 +67,7 @@ class Hero(Character):
                 if enemy.is_alive() != True:
                     enemy.death_message()
                     self.get_exp()
+                    self.status()
                     # self.get_gold(enemy)
                 if self.is_alive() !=True:
                     self.death_message()
@@ -93,7 +94,7 @@ class Hero(Character):
             level_diff = (self.level - enemy.level)
             enemy.level = self.level
             enemy.health += round((enemy.health * .45) * level_diff)
-            enemy.power += round((enemy.power * .65) * level_diff)
+            enemy.power += round((enemy.power * .55) * level_diff)
         while enemy.is_alive() and self.is_alive():
             print("\n")
             self.status()
@@ -112,6 +113,7 @@ class Hero(Character):
                 if enemy.is_alive() != True:
                     enemy.death_message()
                     self.get_exp()
+                    self.status()
                 if self.is_alive() !=True:
                     self.death_message()
                     quit()
@@ -162,3 +164,6 @@ class Hero(Character):
     def spend_gold(self):
         self.total_gold -= (round(self.total_gold * .33))
         print(f"You spent {round(self.total_gold * .33)} gold in the tavern.")
+    
+    def __str__(self):
+        return "You"

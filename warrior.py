@@ -7,7 +7,7 @@ class Warrior(Hero):
         self.health = health
         self.power = power
         self.max_health = max_health
-        
+
     def attack(self, enemy):
         crit = randrange(5)
         if crit == 4:
@@ -16,3 +16,6 @@ class Warrior(Hero):
         elif crit != 4:
             enemy.health -= self.power
             print(f"You do {self.power} damage to the {enemy}.")
+
+    def __str__(self):
+        return "You"

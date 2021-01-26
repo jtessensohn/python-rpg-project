@@ -19,3 +19,6 @@ class Priest(Hero):
                 self.health += self.power
                 print(f"You do {self.power} damage to the {enemy} and healed yourself for {self.power} health.")
             # elif self.max_health x
+
+    def __str__(self):
+        return "You"
