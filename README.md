@@ -3,6 +3,6 @@ This short-term RPG features four classes, four enemy types and boss that scale 
 
 ## Motivation
 ![alt text](https://i.redd.it/qfeftum6i0l11.jpg)
-This project initially began as an in-class exercise to practice and explore python concepts. At the end of the exercise we were assigned an open ended project with the option to continue the RPG. RPGs being something I'm comfortable with and having already written through the game enough to where I felt like it was more min than exercise, I opted to continue making features for it for the assigned project.
+This project initially began as an in-class exercise to practice and explore python concepts. At the end of the exercise we were assigned an open ended project with the option to continue the RPG. RPGs being something I'm comfortable with and having already written through the game enough to where I felt like it was more mine than exercise, I opted to continue making features for it for the assigned project.
 
 ![alt text](https://i.imgur.com/829NSjy.png)
